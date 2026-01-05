@@ -28,5 +28,5 @@ on:
 jobs:
   notify-discord:
     name: Notify Discord about Issue Events
-    uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@2-gh-issues-to-discord
+    uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@main
     secrets: inherit
