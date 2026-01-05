@@ -1,0 +1,42 @@
+name: GitHub Issues to Discord Integration
+
+on:
+  issues:
+    types:
+      - opened
+      - closed
+      - reopened
+      - edited
+      - deleted
+      - transferred
+      - pinned
+      - unpinned
+      - labeled
+      - unlabeled
+      - locked
+      - unlocked
+      - assigned
+      - unassigned
+      - milestoned
+      - demilestoned
+  issue_comment:
+    types:
+      - created
+      - edited
+      - deleted
+
+jobs:
+  notify-discord:
+    name: Notify Discord about Issue Events
+    uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration/workflow.yml@2-gh-issues-to-discord
+    secrets: inherit
+    with:
+      github_action: ${{ github.event.action }}
+      github_repo: ${{ github.event.repository.url }}
+      github_issue_number: ${{ github.event.issue.number || github.event.comment.issue.number }}
+      github_issue_title: ${{ github.event.issue.title }}
+      github_issue_state: ${{ github.event.issue.state }}
+      github_issue_url: ${{ github.event.issue.url }}
+      github_event_name: ${{ github.event_name }}
+
+      github_issue_body: ${{ github.event.issue.body }}
