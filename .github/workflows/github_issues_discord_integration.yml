@@ -6,23 +6,6 @@ on:
       - opened
       - closed
       - reopened
-      - edited
-      - deleted
-      - transferred
-      - pinned
-      - unpinned
-      - labeled
-      - unlabeled
-      - locked
-      - unlocked
-      - assigned
-      - unassigned
-      - milestoned
-      - demilestoned
-  issue_comment:
-    types:
-      - created
-      - edited
       - deleted
 
 jobs:
