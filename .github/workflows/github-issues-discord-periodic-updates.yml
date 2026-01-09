@@ -1,0 +1,13 @@
+name: GitHub Issues to Discord Periodic Updates
+
+on:
+    #   schedule:
+    #     - cron: '0 0 * * *'
+
+    workflow_dispatch:
+
+jobs:
+    periodic-updates:
+        name: Periodic Updates Invoke
+        uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-periodic-updates.yml@5-gh-periodic-issue-updates
+        secrets: inherit

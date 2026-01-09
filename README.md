@@ -8,19 +8,21 @@ This repository serves as a central hub for managing and organizing issues, task
 
 ## Discord Integration
 
-This repository includes a GitHub Actions workflow that automatically communicates issue actions to the `We Are In Hell` **Discord Server**. Whenever issues are created, updated, or have any status changes, the workflow will send notifications to the Discord server to keep the team informed in real-time.
+This repository includes GitHub Actions workflows that automatically communicate issue actions to the `We Are In Hell` **Discord Server**. The workflows keep the team informed in real-time about issue activities and provide periodic updates.
 
-The integration workflow (`github_issues_discord_integration.yml`) monitors all issue-related events and forwards them to the Discord server for seamless collaboration and visibility.
+### Workflows
 
-## Workflow
+#### Issue Event Integration (`github_issues_discord_integration.yml`)
 
-The workflow is triggered by the following issue events:
+This workflow monitors essential issue events and forwards them to the Discord server:
 
-- Issue opened, closed, reopened
-- Issue edited or deleted
-- Issue comments (created, edited, deleted)
-- Issue assignments and labels
-- Milestone updates
-- And more...
+- Issue opened
+- Issue closed
+- Issue reopened
+- Issue deleted
 
 All these events are automatically communicated to the `We Are In Hell` **Discord Server** for team awareness.
+
+#### Periodic Updates (`github-issues-discord-periodic-updates.yml`)
+
+This workflow provides periodic updates about issues and can be triggered manually via `workflow_dispatch` or on a schedule (currently commented out). It uses the reusable workflow from `theToolKit` repository to send periodic status updates to Discord.
