@@ -12,17 +12,24 @@ This repository includes GitHub Actions workflows that automatically communicate
 
 ### Workflows
 
-#### Issue Event Integration (`github_issues_discord_integration.yml`)
+#### GitHub Issues to Discord Integration (`github-issues-discord-integration.yml`)
 
-This workflow monitors essential issue events and forwards them to the Discord server:
+This workflow provides comprehensive Discord integration for issue management through a reusable workflow from the `theToolKit` repository. It consists of two main jobs:
 
-- Issue opened
-- Issue closed
-- Issue reopened
-- Issue deleted
+**Issue Event Monitoring:**
 
-All these events are automatically communicated to the `We Are In Hell` **Discord Server** for team awareness.
+- Monitors and forwards essential issue events to the Discord server:
+  - Issue opened
+  - Issue closed
+  - Issue reopened
+  - Issue deleted
+- Automatically triggered on issue events to communicate real-time updates to the `We Are In Hell` **Discord Server**.
 
-#### Periodic Updates (`github-issues-discord-periodic-updates.yml`)
+**Periodic Updates:**
 
-This workflow provides periodic updates about issues and can be triggered manually via `workflow_dispatch` or on a schedule (currently commented out). It uses the reusable workflow from `theToolKit` repository to send periodic status updates to Discord.
+- Provides scheduled periodic updates about issues
+- Can be triggered manually via `workflow_dispatch`
+- Runs automatically on a daily schedule (cron: `0 0 * * *`)
+- Uses the reusable workflow from `scondo-prof/theToolKit` repository to send periodic status updates to Discord
+
+The workflow uses the reusable workflow located at `scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@5-gh-periodic-issue-updates` and inherits all necessary secrets automatically.
