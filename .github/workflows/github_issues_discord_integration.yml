@@ -9,18 +9,17 @@ on:
       - deleted
 
   schedule:
-    - cron: "0 20 * * *"
+    - cron: "0 0 * * *"
 
   workflow_dispatch:
 
 jobs:
   periodic-updates:
-    name: Periodic Updates Invoke
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-periodic-updates.yml@5-gh-periodic-issue-updates
     secrets: inherit
+
   notify-discord:
-    name: Notify Discord about Issue Events
     if: github.event_name == 'issues'
     uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@main
     secrets: inherit
