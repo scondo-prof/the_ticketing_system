@@ -11,10 +11,12 @@ on:
   schedule:
     - cron: "0 20 * * *"
 
+  workflow_dispatch:
+
 jobs:
   periodic-updates:
     name: Periodic Updates Invoke
-    if: github.event_name == 'schedule'
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-periodic-updates.yml@5-gh-periodic-issue-updates
     secrets: inherit
   notify-discord:
