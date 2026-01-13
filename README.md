@@ -16,7 +16,7 @@ This repository includes GitHub Actions workflows that automatically communicate
 
 This workflow provides comprehensive Discord integration for issue management through a reusable workflow from the `theToolKit` repository. It consists of two main jobs:
 
-**Issue Event Monitoring:**
+**Issue Event Monitoring (`trigger-log-issue-details`):**
 
 - Monitors and forwards essential issue events to the Discord server:
   - Issue opened
@@ -24,12 +24,13 @@ This workflow provides comprehensive Discord integration for issue management th
   - Issue reopened
   - Issue deleted
 - Automatically triggered on issue events to communicate real-time updates to the `We Are In Hell` **Discord Server**.
+- Uses the reusable workflow from `scondo-prof/theToolKit` repository to log issue details to Discord
 
-**Periodic Updates:**
+**Periodic Updates (`trigger-periodic-issues-updates`):**
 
 - Provides scheduled periodic updates about issues
 - Can be triggered manually via `workflow_dispatch`
-- Runs automatically on a daily schedule (cron: `0 0 * * *`)
+- Instead of using GitHub Actions' native `schedule` trigger, a scheduled AWS Lambda function triggers this workflow via `workflow_dispatch` to provide more reliable cron scheduling
 - Uses the reusable workflow from `scondo-prof/theToolKit` repository to send periodic status updates to Discord
 
 The workflow uses the reusable workflow located at `scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@5-gh-periodic-issue-updates` and inherits all necessary secrets automatically.
