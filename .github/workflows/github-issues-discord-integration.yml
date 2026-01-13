@@ -9,7 +9,7 @@ on:
       - deleted
 
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "22 1 * * *"
 
   workflow_dispatch:
 
