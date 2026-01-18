@@ -17,14 +17,14 @@ on:
 jobs:
   trigger-periodic-issues-updates:
     if: github.event_name == 'workflow_dispatch'
-    uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@main
+    uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@5-periodoic-issues-discord-fix
     secrets: inherit
     with:
       trigger-periodic-issues-updates: true
 
   trigger-log-issue-details:
     if: github.event_name == 'issues' || github.event_name == 'issue_comment'
-    uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@main
+    uses: scondo-prof/theToolKit/.github/workflows/github-issues-discord-integration.yml@5-periodoic-issues-discord-fix
     secrets: inherit
     with:
       trigger-log-issue-details: true
